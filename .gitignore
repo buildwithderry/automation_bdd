@@ -1,0 +1,47 @@
+# dependencies
+node_modules/
+
+# environment (berisi kredensial)
+.env
+.env.dev
+.env.uat
+
+# hasil run
+artifacts/
+# spec hasil generate dari feature file — dibuat ulang oleh `bddgen` tiap run
+.features-gen/
+allure-results/
+allure-report/
+allure-history/
+test-results/
+playwright-report/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# data hasil run (berisi email PIC asli, password akun, dan token aktivasi)
+fixtures/output/
+!fixtures/output/.gitkeep
+
+# preferensi lokal editor/agent
+.claude/settings.local.json
+
+# pratinjau email laporan (hasil --pratinjau)
+pratinjau-email.html
+site/
+
+# laporan PDF hasil generate
+laporan-*.pdf
+laporan-*.png
+
+# dokumen hand-off dari repo portal (bukan bagian dari suite)
+Perubahan_Automation.md
+# catatan internal tim dev — jangan ikut ter-push
+rule_invite_client.md
+
+# trace Playwright yang dibawa manual untuk diagnosis
+trace.zip
+
+# keluaran Playwright MCP saat eksplorasi manual (snapshot, konsol, screenshot)
+.playwright-mcp/

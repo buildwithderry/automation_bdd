@@ -1,0 +1,54 @@
+{
+  "name": "automation-bdd-template",
+  "version": "1.0.0",
+  "description": "Playwright BDD E2E automation template — Gherkin feature files, data pooling, parallel execution, Allure reporting. Demo target: saucedemo.com",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "bdd": "bddgen",
+    "bdd:clean": "node -e \"require('fs').rmSync('.features-gen', { recursive: true, force: true })\"",
+    "test": "bddgen && playwright test --project=\"*-desktop\"",
+    "test:tag": "bddgen && playwright test --project=\"*-desktop\" --grep",
+    "test:gagal": "bddgen && playwright test --project=\"*-desktop\" --last-failed",
+    "test:headed": "bddgen && cross-env HEADLESS=false playwright test --project=\"*-desktop\"",
+    "test:ui": "bddgen && playwright test --ui --project=\"*-desktop\"",
+    "test:debug": "bddgen && cross-env HEADLESS=false playwright test --debug --project=\"*-desktop\"",
+    "test:list": "bddgen && playwright test --project=\"*-desktop\" --list",
+    "test:desktop": "bddgen && playwright test --project=saucedemo-desktop",
+    "test:mobile": "bddgen && playwright test --project=saucedemo-mobile",
+    "test:smoke": "bddgen && playwright test --project=saucedemo-desktop --grep @smoke",
+    "test:regression": "bddgen && playwright test --project=saucedemo-desktop --grep @regression",
+    "test:bs": "bddgen && playwright test --project=browserstack-chrome",
+    "test:bs:mobile": "bddgen && playwright test --project=browserstack-mobile",
+    "report": "node scripts/allure_report.js",
+    "report:open": "node scripts/allure_report.js --open",
+    "report:clean": "node scripts/allure_clean.js",
+    "report:html": "playwright show-report artifacts/playwright-report",
+    "cek:bdd": "node scripts/cek_standar_bdd.js",
+    "cek:step": "node scripts/cek_step_ganda.js",
+    "cek:semua": "npm run cek:bdd && npm run cek:step"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "bdd",
+    "gherkin",
+    "template",
+    "allure",
+    "saucedemo",
+    "browserstack"
+  ],
+  "author": "buildwithderry",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@playwright/test": "^1.62.1",
+    "allure-commandline": "^2.43.0",
+    "allure-playwright": "^3.11.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2",
+    "playwright-bdd": "^9.2.0"
+  }
+}

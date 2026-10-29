@@ -1,0 +1,9 @@
+{
+  "pool": [
+    { "username": "standard_user",  "password": "secret_sauce", "role": "standard"  },
+    { "username": "problem_user",   "password": "secret_sauce", "role": "problem"   },
+    { "username": "visual_user",    "password": "secret_sauce", "role": "visual"    },
+    { "username": "error_user",     "password": "secret_sauce", "role": "error"     }
+  ],
+  "locked": { "username": "locked_out_user", "password": "secret_sauce" }
+}
